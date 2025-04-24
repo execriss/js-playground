@@ -30,20 +30,20 @@ const Header: React.FC = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary px-2">
       <div className="d-flex align-items-center text-start">
         <div>
-          <img src={Logo} alt="logo" className='img-size py-2' />
+          <img src={Logo} alt="logo" className='img-size py-2 cursor-pointer' />
         </div>
         <a className="navbar-brand" href="/">
           JS PlayGround
         </a>
       </div>
 
-      <div className="collapse navbar-collapse">
+      <div className="collapse navbar-collapse ms-3">
         <ul className="navbar-nav me-auto">
           <li className="nav-item">
             <button
               type="button"
               className="btn btn-secondary"
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: 'pointer', padding: '5px 10px' }}
               onClick={() =>
                 dispatch({
                   type: AppActions.TOGGLE_ABOUT_MODAL,
@@ -57,10 +57,12 @@ const Header: React.FC = () => {
         </ul>
 
         <div className="my-2 app-actions">
-          <div>
+          {/* PARA CARGAR EJEMPLOS DE CODIGO */}
+          {/* <div>
             <select
               data-testid="header-code-selector"
               className="form-control"
+              style={{ padding: '5px 10px' }}
               value={codeSampleName}
               onChange={handleChange}
             >
@@ -73,7 +75,7 @@ const Header: React.FC = () => {
                 </option>
               ))}
             </select>
-          </div>
+          </div> */}
           <span style={{ marginLeft: 20, marginRight: 20 }} />
 
           <div className="btn-group" role="group">
@@ -82,6 +84,7 @@ const Header: React.FC = () => {
                 key={item.id}
                 type="button"
                 data-testid={`app-theme-button-${item.value}`}
+                style={{ padding: '5px 10px' }}
                 className={`btn btn-${theme === item.value ? 'warning' : ' default'
                   }`}
                 onClick={() => {

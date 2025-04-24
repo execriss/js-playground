@@ -2,7 +2,7 @@ const ButtonProps: Record<ActionButtonType, ActionButtonTypeProps> = {
   clear: {
     title: 'Limpiar',
     icon: 'fas fa-trash',
-    className: 'btn btn-info',
+    className: 'btn btn-danger',
     toolTip: 'Clear result (CtrCmd + l)',
   },
   execute: {
@@ -14,7 +14,7 @@ const ButtonProps: Record<ActionButtonType, ActionButtonTypeProps> = {
   history: {
     title: 'Historial',
     icon: 'fas fa-history',
-    className: 'btn btn-warning',
+    className: 'btn btn-secondary',
     toolTip: 'Show run history',
   },
 };
@@ -35,6 +35,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       className={buttonProps.className}
       disabled={loading}
       title={buttonProps.toolTip}
+      style={{ padding: '5px 10px' }}
     >
       <span>{buttonProps.title}</span>
       &nbsp;

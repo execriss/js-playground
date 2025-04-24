@@ -50,9 +50,8 @@ const HistoryModal: React.FC = () => {
                 </button>
               </h2>
               <div
-                className={`accordion-collapse collapse ${
-                  isActive ? 'show' : ''
-                }`}
+                className={`accordion-collapse collapse ${isActive ? 'show' : ''
+                  }`}
               >
                 <div className="accordion-body">
                   <pre>{item.code}</pre>
@@ -62,7 +61,7 @@ const HistoryModal: React.FC = () => {
                       className="btn btn-success"
                       onClick={handleRestore(item)}
                     >
-                      Restore
+                      Recuperar
                     </button>
                   </div>
                 </div>

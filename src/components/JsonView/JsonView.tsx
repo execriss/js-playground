@@ -18,7 +18,7 @@ const JsonView: React.FC = () => {
   };
 
   return (
-    <Modal isOpen={open} onClose={handleClose} title="JSON View">
+    <Modal isOpen={open} onClose={handleClose} title="Vista JSON">
       <ReactJsonView value={state.result.filter(item => item)} style={theme} />
     </Modal>
   );

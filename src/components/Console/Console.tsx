@@ -23,10 +23,11 @@ const Console: React.FC = () => {
 
   return (
     <div data-testid="console-result" className={`console ${extraClass}`}>
-      {result.map((item, index) => {
-        const consoleItem = !_.isString(item) ? JSON.stringify(item) : item;
+      {[...result].reverse().map((item, index) => {
+        const consoleItem = !_.isString(item) ? JSON.stringify(item, null, 2) : item;
+        const itemClassName = index === 0 ? 'latest-log' : '';
         return (
-          <div key={createKey(index)}>
+          <div key={index} className={itemClassName}>
             <pre>
               <span style={{ marginRight: 5 }}>&#8250;</span>
               <span data-testid={`console-result-item-${index}`}>

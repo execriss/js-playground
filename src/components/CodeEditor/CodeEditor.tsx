@@ -1,3 +1,4 @@
+// c:\Users\Trabajos\Desktop\example-git\js-playground\src\components\CodeEditor\CodeEditor.tsx
 import { useContext, useEffect, useRef, useState } from 'react';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 
@@ -5,16 +6,23 @@ import { AppContext } from 'context/AppContext';
 import { AppActions } from 'context/Reducer';
 import useCodeRunner from 'hooks/useCodeRunner';
 
+// --- INICIO: Añadir useRef para el temporizador de debounce ---
+const DEBOUNCE_DELAY = 750; // Milisegundos de espera antes de ejecutar
+// --- FIN: Añadir useRef para el temporizador de debounce ---
+
 const CodeEditor: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   const [editor, setEditor] =
     useState<monaco.editor.IStandaloneCodeEditor | null>(null);
   const editorRef = useRef(null);
   const { runCode } = useCodeRunner();
+  // --- INICIO: Añadir useRef para el temporizador de debounce ---
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  // --- FIN: Añadir useRef para el temporizador de debounce ---
 
   const initEditor = () => {
     const editorConfig = {
-      value: '',
+      value: state.code, // Inicializar con el código actual del estado
       language: 'typescript',
       fontSize: 20,
       theme: state.theme,
@@ -50,32 +58,63 @@ const CodeEditor: React.FC = () => {
       run: () => dispatch({ type: AppActions.CLEAR_RESULT }),
     });
 
+    // --- INICIO: Modificar onDidChangeModelContent con Debounce ---
     editorInstance.onDidChangeModelContent(() => {
+      // Limpiar el temporizador anterior si existe
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+
+      const currentCode = editorInstance.getValue();
+
+      // Actualizar el estado del código inmediatamente (o también puedes ponerlo dentro del timeout si prefieres)
       dispatch({
         type: AppActions.UPDATE_CODE,
-        payload: editorInstance.getValue(),
+        payload: currentCode,
       });
-    });
 
-    editorInstance.setValue(state.code);
+      // Establecer un nuevo temporizador para ejecutar el código después del delay
+      debounceTimerRef.current = setTimeout(() => {
+        runCode(currentCode);
+      }, DEBOUNCE_DELAY);
+    });
+    // --- FIN: Modificar onDidChangeModelContent con Debounce ---
+
+    // No necesitas establecer el valor aquí si ya lo hiciste en editorConfig
+    // editorInstance.setValue(state.code);
     setEditor(editorInstance);
   };
 
   useEffect(() => {
-    if (editorRef && !editor) {
+    if (editorRef.current && !editor) {
       initEditor();
     }
 
-    return () => editor?.dispose();
-  }, [editorRef.current]);
+    // --- INICIO: Limpieza del temporizador al desmontar ---
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+      editor?.dispose();
+    };
+    // --- FIN: Limpieza del temporizador al desmontar ---
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editorRef.current]); // Asegúrate de que las dependencias sean correctas, runCode y dispatch suelen ser estables
 
   useEffect(() => {
-    editor?.updateOptions({ theme: state.theme });
-  }, [state.theme]);
+    if (editor) { // Asegurarse que el editor existe antes de actualizar
+      monaco.editor.setTheme(state.theme); // Usar la API global para cambiar tema
+    }
+  }, [state.theme, editor]); // Añadir editor como dependencia
 
   useEffect(() => {
-    editor?.setValue(state.codeSample);
-  }, [state.codeSample]);
+    // Solo actualiza el valor si el código del estado (codeSample)
+    // es diferente al valor actual del editor para evitar bucles
+    // y perder la posición del cursor.
+    if (editor && editor.getValue() !== state.codeSample) {
+      editor?.setValue(state.codeSample);
+    }
+  }, [state.codeSample, editor]); // Añadir editor como dependencia
 
   return <div ref={editorRef} style={{ width: '100%', height: '100%' }} />;
 };

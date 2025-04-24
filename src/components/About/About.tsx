@@ -14,14 +14,13 @@ const About: React.FC = () => {
   };
 
   return (
-    <Modal isOpen={open} onClose={handleClose} title="About JS Playground">
+    <Modal isOpen={open} onClose={handleClose} title="Información de JS Playground">
       <p>
-        JS Playground is an experimental JavaScript PlayGround created for
-        Education and Testing Purposes
+        Un entorno interactivo para escribir, probar y ejecutar código JavaScript y TypeScript directamente en tu navegador.
       </p>
       <div>
-        This sandbox playground is hooked up directly with
-        <ul data-testid="about-libraries-list">
+        Experimenta con fragmentos de código JavaScript y TypeScript en este sandbox. Carga ejemplos, ejecuta y visualiza los resultados al instante.
+        {/* <ul data-testid="about-libraries-list">
           {LIBRARIES.map(lib => (
             <li key={lib.name}>
               <div
@@ -38,13 +37,16 @@ const About: React.FC = () => {
               </div>
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
-      <p>Enjoy</p>
+      <br />
+      <br />
+      <br />
       <div>
         <div className="float-left">
-          <a href="https://nyala.dev" target="_blank" rel="noopener noreferrer">
-            Khalid Elshafie
+          Desarrollado por {" "}
+          <a href="*" target="_blank" rel="noopener noreferrer">
+            Codexia
           </a>
         </div>
       </div>

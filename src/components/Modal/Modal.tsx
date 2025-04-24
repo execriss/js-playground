@@ -36,7 +36,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, title, onClose, children }) => {
               className="btn btn-primary"
               onClick={onClose}
             >
-              Close
+              Cerrar
             </button>
           </div>
         </div>

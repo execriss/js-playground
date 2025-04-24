@@ -17,10 +17,10 @@ const ContextMenu: React.FC<ContextMenuProps> = ({
       }}
     >
       <li>
-        <Clickable onClick={onClick}>View JSON</Clickable>
+        <Clickable onClick={onClick}>Ver JSON</Clickable>
       </li>
       <li>
-        <Clickable onClick={onClose}>Close</Clickable>
+        <Clickable onClick={onClose}>Cerrar</Clickable>
       </li>
     </ul>
   );

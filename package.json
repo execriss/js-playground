@@ -1,0 +1,100 @@
+{
+  "name": "js-playground",
+  "description": "JavaScript Playground hooked up with Redux",
+  "version": "4.0.0",
+  "private": true,
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "cross-env NODE_ENV=development webpack serve",
+    "build": "NODE_ENV=production webpack",
+    "test": "jest",
+    "test:watch": "jest test --watch",
+    "test:coverage": "jest test --coverage . --silent --watch",
+    "pre-commit": "lint-staged",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abolkog/js-playground.git"
+  },
+  "author": {
+    "name": "Khalid Elshafie",
+    "url": "https://abolkog.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abolkog/js-playground/issues"
+  },
+  "homepage": "https://abolkog.github.io/js-playground",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@uiw/react-json-view": "^2.0.0-alpha.30",
+    "axios": "^1.7.9",
+    "date-fns": "^4.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "gh-pages": "^6.2.0",
+    "github-fork-ribbon-css": "^0.2.3",
+    "lodash": "^4.17.21",
+    "luxon": "^3.5.0",
+    "lz-string": "^1.5.0",
+    "monaco-editor": "^0.52.2",
+    "monaco-editor-webpack-plugin": "^7.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
+    "redux-thunk": "^3.1.0",
+    "typescript": "^5.7.2",
+    "web-vitals": "^4.2.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@semantic-release/git": "^10.0.1",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.14",
+    "@types/lodash": "^4.17.13",
+    "@types/luxon": "^3.4.2",
+    "@types/lz-string": "^1.5.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/redux": "^3.6.0",
+    "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "html-webpack-plugin": "^5.6.3",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^15.2.11",
+    "mini-css-extract-plugin": "^2.9.2",
+    "prettier": "^3.4.2",
+    "semantic-release": "^24.2.0",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.1",
+    "typescript-eslint": "^8.18.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.2.0",
+    "webpack-merge": "^6.0.1"
+  }
+}

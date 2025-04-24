@@ -1,22 +1,6 @@
 ## js-playground (JavaScript Playground)
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/abolkog/js-playground)
-![](https://img.shields.io/github/license/abolkog/js-playground.svg)
-
-A simple JavaScript playground / code sandbox hooked up with few libraries for quick code testing
-
-![Sample](https://user-images.githubusercontent.com/3861725/75946297-d6600380-5ef0-11ea-9b59-794ae8ec613b.png)
-
-## Available Libraries
-
-- [Redux](https://redux.js.org/)
-- [Lodash](https://lodash.com/)
-- [Axios](https://github.com/axios/axios)
-- [Luxon](https://moment.github.io/luxon/#/)
-
-## Demo
-
-You can see demo at [This link](https://abolkog.github.io/js-playground/index.html)
+A simple JavaScript playground / code sandbox.
 
 ## Run it locally
 

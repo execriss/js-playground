@@ -34,71 +34,71 @@ export const LIBRARIES: Library[] = [
 export const CODE_SAMPLES: CodeSample[] = [
   {
     id: 1,
-    name: 'Redux Sample',
+    name: 'Array',
     codeSample:
       "// Redux example\n\nconst reducer = (state = { count: 0 }, action) => {\n\tswitch(action.type) {\n\t\tcase 'INCREMENT': return { ...state, count: state.count + action.payload };\n\t\tdefault: return state;\n\t}\n}\n\nconst store = Redux.createStore(reducer);\n\nconst incrementByTwoAction = {type: 'INCREMENT', payload: 2 };\n\nconsole.log(`Before Dispatching: ${store.getState().count}`)\n\nstore.dispatch(incrementByTwoAction);\n\nconsole.log(`After Dispatching:  ${store.getState().count}`)\n",
   },
   {
     id: 2,
-    name: 'Axios',
+    name: 'Objects',
     codeSample:
       '// axios example. Reference axios in the code as `axios`\n\nconst loadTVShowCast = async () => {\n\tconst tvShowId = 431; // FRIENDS TV Show\n\tconst url = `https://api.tvmaze.com/shows/${tvShowId}/cast`;\n\tconst { data } = await axios.get(url);\n\tconsole.log(data);\n}\n\nloadTVShowCast();',
   },
   {
     id: 3,
-    name: 'lodash',
+    name: 'Functions',
     codeSample:
       "// Lodash example. Reference lodash in the code as `_`\n\nconst  sample = _.chunk(['a', 'b', 'c', 'd'], 2);\nsample",
   },
   {
     id: 4,
-    name: 'luxon',
+    name: 'Classes',
     codeSample:
       "// Luxon code example. Reference Luxon in the code as `luxon` \n\nconst luxonDate = luxon.DateTime.now().setZone('America/New_York').minus({weeks:1}).endOf('day').toISO();\nluxonDate",
   },
-  {
-    id: 5,
-    name: 'date-fns',
-    codeSample:
-      '// date-fns code example. Reference date-fns in the code as `dfn` \n\nconst value = dfn.formatDistance(dfn.subDays(new Date(), 3), new Date(), { addSuffix: true });\nvalue;',
-  },
-  {
-    id: 6,
-    name: 'Typescript',
-    codeSample: `// Interface for calculation parameters
-interface CalculationParams {
-    operation: string;
-    operand1: number;
-    operand2: number;
-}
+  //   {
+  //     id: 5,
+  //     name: 'date-fns',
+  //     codeSample:
+  //       '// date-fns code example. Reference date-fns in the code as `dfn` \n\nconst value = dfn.formatDistance(dfn.subDays(new Date(), 3), new Date(), { addSuffix: true });\nvalue;',
+  //   },
+  //   {
+  //     id: 6,
+  //     name: 'Typescript',
+  //     codeSample: `// Interface for calculation parameters
+  // interface CalculationParams {
+  //     operation: string;
+  //     operand1: number;
+  //     operand2: number;
+  // }
 
-// Function to calculate values based on operation
-function calculate(params: CalculationParams): number | string {
-    const { operation, operand1, operand2 } = params;
-    switch (operation) {
-        case '+':
-            return operand1 + operand2;
-        case '-':
-            return operand1 - operand2;
-        case '*':
-            return operand1 * operand2;
-        case '/':
-            if (operand2 === 0) {
-                return 'Cannot divide by zero';
-            } else {
-                return operand1 / operand2;
-            }
-        default:
-            return 'Invalid operation';
-    }
-}
+  // // Function to calculate values based on operation
+  // function calculate(params: CalculationParams): number | string {
+  //     const { operation, operand1, operand2 } = params;
+  //     switch (operation) {
+  //         case '+':
+  //             return operand1 + operand2;
+  //         case '-':
+  //             return operand1 - operand2;
+  //         case '*':
+  //             return operand1 * operand2;
+  //         case '/':
+  //             if (operand2 === 0) {
+  //                 return 'Cannot divide by zero';
+  //             } else {
+  //                 return operand1 / operand2;
+  //             }
+  //         default:
+  //             return 'Invalid operation';
+  //     }
+  // }
 
-// Example usage:
-console.log(calculate({ operation: '+', operand1: 5, operand2: 3 }));   // Output: 8
-console.log(calculate({ operation: '-', operand1: 7, operand2: 2 }));   // Output: 5
-console.log(calculate({ operation: '*', operand1: 4, operand2: 6 }));   // Output: 24
-`,
-  },
+  // // Example usage:
+  // console.log(calculate({ operation: '+', operand1: 5, operand2: 3 }));   // Output: 8
+  // console.log(calculate({ operation: '-', operand1: 7, operand2: 2 }));   // Output: 5
+  // console.log(calculate({ operation: '*', operand1: 4, operand2: 6 }));   // Output: 24
+  // `,
+  //   },
 ];
 
 export const EDITOR_THEMES: EditorTheme[] = [

@@ -28,9 +28,8 @@ body {
 .consoleContainer {
   height: 20vh;
   display: flex;
-  flex: 1
+  flex: 1;
 }
-
 
 .monaco-editor,
 .overflow-guard {
@@ -101,13 +100,10 @@ body {
   text-align: left;
 }
 
-
 .text-sm {
   color: #aaa;
   font-size: 0.7rem;
 }
-
-
 
 .modalOverlay {
   position: fixed;
@@ -140,4 +136,11 @@ body {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.img-size {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
 }

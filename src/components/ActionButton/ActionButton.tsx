@@ -1,18 +1,18 @@
 const ButtonProps: Record<ActionButtonType, ActionButtonTypeProps> = {
   clear: {
-    title: 'Clear result',
+    title: 'Limpiar',
     icon: 'fas fa-trash',
     className: 'btn btn-info',
     toolTip: 'Clear result (CtrCmd + l)',
   },
   execute: {
-    title: 'Run',
+    title: 'Ejecutar',
     icon: 'fas fa-play-circle',
     className: 'btn btn-success',
     toolTip: 'Run Code (CtrCmd + k)',
   },
   history: {
-    title: 'History',
+    title: 'Historial',
     icon: 'fas fa-history',
     className: 'btn btn-warning',
     toolTip: 'Show run history',

@@ -28,9 +28,9 @@ const Header: React.FC = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary px-2">
-      <div>
-        <div className="ImgContent">
-          <img src={Logo} alt="logo" />
+      <div className="d-flex align-items-center text-start">
+        <div>
+          <img src={Logo} alt="logo" className='img-size py-2' />
         </div>
         <a className="navbar-brand" href="/">
           JS PlayGround
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
                 })
               }
             >
-              About
+              Info
             </button>
           </li>
         </ul>
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
               onChange={handleChange}
             >
               <option value="" disabled>
-                Load Sample Code
+                Cargar Ejemplos
               </option>
               {CODE_SAMPLES.map(item => (
                 <option value={item.name} key={item.id}>
@@ -82,9 +82,8 @@ const Header: React.FC = () => {
                 key={item.id}
                 type="button"
                 data-testid={`app-theme-button-${item.value}`}
-                className={`btn btn-${
-                  theme === item.value ? 'warning' : ' default'
-                }`}
+                className={`btn btn-${theme === item.value ? 'warning' : ' default'
+                  }`}
                 onClick={() => {
                   dispatch({
                     type: AppActions.TOGGLE_THEME,

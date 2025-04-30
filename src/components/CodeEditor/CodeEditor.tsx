@@ -6,9 +6,8 @@ import { AppContext } from 'context/AppContext';
 import { AppActions } from 'context/Reducer';
 import useCodeRunner from 'hooks/useCodeRunner';
 
-// --- INICIO: Añadir useRef para el temporizador de debounce ---
+// Añadir useRef para el temporizador de debounce
 const DEBOUNCE_DELAY = 750; // Milisegundos de espera antes de ejecutar
-// --- FIN: Añadir useRef para el temporizador de debounce ---
 
 const CodeEditor: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -23,7 +22,7 @@ const CodeEditor: React.FC = () => {
   const initEditor = () => {
     const editorConfig = {
       value: state.code, // Inicializar con el código actual del estado
-      language: 'typescript',
+      language: 'javascript',
       fontSize: 20,
       theme: state.theme,
       minimap: {
@@ -36,7 +35,7 @@ const CodeEditor: React.FC = () => {
       editorConfig
     );
 
-    monaco.editor.setModelLanguage(editorInstance.getModel()!, 'typescript');
+    monaco.editor.setModelLanguage(editorInstance.getModel()!, 'javascript');
 
     editorInstance.layout();
 
@@ -80,7 +79,6 @@ const CodeEditor: React.FC = () => {
     });
     // --- FIN: Modificar onDidChangeModelContent con Debounce ---
 
-    // No necesitas establecer el valor aquí si ya lo hiciste en editorConfig
     // editorInstance.setValue(state.code);
     setEditor(editorInstance);
   };

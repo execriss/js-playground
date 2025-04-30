@@ -40,6 +40,7 @@
     ]
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
     "@testing-library/jest-dom": "^6.6.3",
     "@uiw/react-json-view": "^2.0.0-alpha.30",
     "axios": "^1.7.9",
@@ -73,7 +74,7 @@
     "@types/react-dom": "^19.0.2",
     "@types/react-router-dom": "^5.3.3",
     "@types/redux": "^3.6.0",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "eslint": "^9.16.0",
@@ -89,6 +90,7 @@
     "mini-css-extract-plugin": "^2.9.2",
     "prettier": "^3.4.2",
     "semantic-release": "^24.2.0",
+    "tailwindcss": "^4.1.4",
     "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.1",
     "typescript-eslint": "^8.18.0",
